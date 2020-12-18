@@ -11,19 +11,29 @@
         <h1>Auctions</h1>
         <div>
             {% if user.is_authenticated %}
-                Signed in as <strong>{{ user.username }}</strong>.
+                Hello, <strong>{{ user.username }}</strong>.
             {% else %}
-                Not signed in.
+                Hello guest, please sign in. 
             {% endif %}
         </div>
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/categories">Categories</a>
+            </li>
             {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="/create">Create a post</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="/watchlist/{{user.username}}">Watchlist <span class="badge badge-success">{{count}}</span></a>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
+                
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Log In</a>

@@ -22,7 +22,7 @@
     {% if user.username %}
     {% if listed_by %}
     <br>
-    <a href="/'closebid/{{ i.id }}"><button class="btn btn-warning">Close Bid</button></a>
+    <a href="/closebid/{{ i.id }}"><button class="btn btn-warning">Close Bid</button></a>
     <br>
     {% endif %}
     {% endif %}
@@ -62,7 +62,7 @@
     </div>
     <br>
     <div class="container">
-      <form action="/cmntsubmit/{{ i.id }}" method="POST">
+      <form action="/comment/{{ i.id }}" method="POST">
         {% csrf_token %}
         <div class="form-group">
           <label for="exampleFormControlTextarea1"><b>Write a comment:</b></label>
